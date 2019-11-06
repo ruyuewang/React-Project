@@ -3,6 +3,26 @@
 ##Author: Ruyue Wang, Yufei Gao 
 ##Starting Date: 11/04/2019
 
+##Functionality
+###Need to add
+
+##Technology 
+- react
+- react-router
+- redux
+
+##Structure 
+```
+- components 
+    - NavBar 
+    - Button 
+    - Input 
+- assets
+- utils 
+- router
+
+```
+
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
 
 ## Available Scripts
