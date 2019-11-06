@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <Meta name="viewport"  content="width=device-width, initial-scale=1.0">
+    <title>Demo4</title>
+</head>
+<body>
+    <input type="text" id="input">
+    <p id="error">Cannot exceed 20 words</p>
+    <script>
+        var input = document.getElementById("input");
+        var err = document.getElementById("error");
+
+        var state = {
+            value: "",
+            error: false
+        };
+
+        var setState = function(newState){
+            state = {
+                ...state,
+                ...newState
+            };
+            render();
+        };
+
+        var render = function(){
+            input.value = state.value;
+            if(state.error){
+                err.style.display = 'block';
+            }else{
+                err.style.display = 'none';
+            }
+        };
+
+        var handleInput = function(value){
+            if(value.length < 8){
+                setState({
+                    value: value
+                })
+            }else{
+                setState({
+                    error:true
+                })
+            }
+
+        };
+
+        input.addEventListener('input', function(){
+            handleInput(this.value)
+        });
+
+        render();
+    </script>
+</body>
+</html>
