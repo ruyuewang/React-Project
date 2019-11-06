@@ -1,8 +1,8 @@
-import React,  {Component} from 'react'
+import React, {Component} from 'react'
 
 export default class Input extends Component{
-    constructor() {
-        super();
+    constructor(props) {
+        super(props);
 
         this.state = { //initialize the state, can only be updated by setState method
             value:""
@@ -22,7 +22,6 @@ export default class Input extends Component{
 
     }
     render(){
-        console.log("Input Comp Updated!")
         return(
             <input type="text"
                    onInput={(e)=>this.handleInput(e)}
