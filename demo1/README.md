@@ -1,17 +1,17 @@
 
-#React Project 
-##Author: Ruyue Wang, Yufei Gao 
-##Starting Date: 11/04/2019
+# React Project 
+## Author: Ruyue Wang, Yufei Gao 
+## Starting Date: 11/04/2019
 
-##Functionality
-###Need to add
+## Functionality
+### Need to add
 
-##Technology 
+## Technology 
 - react
 - react-router
 - redux
 
-##Structure 
+## Structure 
 ```
 - components 
     - NavBar 
