@@ -1,6 +1,5 @@
-
 # React Project 
-Author: Ruyue Wang, Yufei Gao 
+Author: Ruyue Wang, Yufei Gao <br />
 Starting Date: 11/04/2019
 
 ## React Guideline 
@@ -36,6 +35,8 @@ Need to add
 - router
 
 ```
+
+***
 
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
 
