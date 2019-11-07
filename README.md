@@ -3,17 +3,17 @@
 Author: Ruyue Wang, Yufei Gao 
 Starting Date: 11/04/2019
 
-##React Guideline 
+## React Guideline 
 - **npm -g install create-react-app demo**
     - MacOS may need permission: use sudo 
     - demo is the app name
 - **cd into the right directory** 
 - **npm start**
 
-##React Router Guideline
+## React Router Guideline
 - **npm install react-router-dom**
 
-##ANTD Guideline
+## ANTD Guideline
 - **npm install antd**
 
 
