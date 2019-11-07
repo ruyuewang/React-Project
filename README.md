@@ -17,9 +17,8 @@ Starting Date: 11/04/2019
 - **npm install antd**
 
 
-
 ## Functionality
-### Need to add
+Need to add
 
 ## Technology 
 - react
