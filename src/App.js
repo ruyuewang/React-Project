@@ -1,20 +1,16 @@
 import React, {Component} from 'react';
 import './App.css';
-
 //import router component
 import {HashRouter, Route, Link} from 'react-router-dom'
-
+//import route components
+import HomeContainer from './components/home/HomeContainer'
+import AboutContainer from './components/about/AboutContainer'
+import OverviewContainer from './components/overview/OverviewContainer'
+import ContactContainer from './components/contact/ContactContainer'
 //import UI from antd
 import {Layout, Menu} from 'antd'
-const { Header, Content, Footer } = Layout;
 
-// //import component
-// import NavBar from './components/NavBar'
-// import Button from './components/Button'
-// import Input from './components/Input'
-// import NavButton from './components/NavButton'
-
-//Home Page
+const {Header, Content, Footer} = Layout;
 
 class App extends Component{
     constructor(props){
@@ -28,24 +24,26 @@ class App extends Component{
 
                     {/*Header*/}
                     <Header>
-                        <div className="logo" />
+                        <div className="logo"/>
                         <Menu
                             theme="dark"
                             mode="horizontal"
-                            defaultSelectedKeys={['1']}
+                            defaultSelectedKeys={[window.location.hash.split('/')[1]]}
                             style={{ lineHeight: '64px' }}
                         >
-                            <Menu.Item key="1">Home</Menu.Item>
-                            <Menu.Item key="2">About</Menu.Item>
-                            <Menu.Item key="3">Overview</Menu.Item>
-                            <Menu.Item key="4">Contact</Menu.Item>
+                            <Menu.Item key="movie"><Link to="/home">Home</Link></Menu.Item>
+                            <Menu.Item key="about"><Link to="/about">About</Link></Menu.Item>
+                            <Menu.Item key="overview"><Link to="/overview/opt1/1">Overview</Link></Menu.Item>
+                            <Menu.Item key="contact"><Link to="/contact">Contact</Link></Menu.Item>
                         </Menu>
                     </Header>
 
                     {/*Content*/}
-                    <Content style={{ padding: '0 50px', background: '#fff'}}>
-                        {/*<div style={{ background: '#fff', padding: 24, minHeight: 280, height:'100%'}}>Content</div>*/}
-                        Home Page(modify the padding if needed)
+                    <Content style={{ padding: '0 50px', background: '#fff', flex: 1}}>
+                        <Route path="/home" component={HomeContainer}/>
+                        <Route path="/about" component={AboutContainer}/>
+                        <Route path="/overview" component={OverviewContainer}/>
+                        <Route path="/contact" component={ContactContainer}/>
                     </Content>
 
                     {/*Footer*/}

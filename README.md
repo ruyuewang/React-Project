@@ -3,7 +3,7 @@ Author: Ruyue Wang, Yufei Gao <br />
 Starting Date: 11/04/2019
 
 ## React Guideline 
-- **npm -g install create-react-app demo**
+- **npm -g install create-react-app**
     - MacOS may need permission: use sudo 
     - demo is the app name
 - **cd into the right directory** 
