@@ -10,13 +10,15 @@ export default class Item extends Component {
     }
 
     render() {
+        console.log(this.props.vote_average/2);
+        const img_url = `https://image.tmdb.org/t/p/w500/${this.props.poster_path}`;
         return(
             <div className="box">
-                <img src={this.props.images.small} className="img"/>
-                <h4>名称: {this.props.title}</h4>
-                <h4>年份: {this.props.year}</h4>
-                <h4>类型: {this.props.genres.join(',')}</h4>
-                <Rate disabled defaultValue={this.props.rating.average/2}  />
+                <img src= {img_url} className="img" alt=""/>
+                <h4>Name: {this.props.title}</h4>
+                <h4>Date: {this.props.release_date}</h4>
+                {/*<h4>类型: {this.props.genres.join(',')}</h4>*/}
+                <Rate disabled defaultValue={(this.props.vote_average)/2}  />
             </div>
         )
     }
