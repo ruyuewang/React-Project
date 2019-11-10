@@ -64,7 +64,6 @@ export default class List extends Component {
         // }, 1000)
     };
 
-
     renderList = () => {
         if(this.state.isLoading) {
             return(
