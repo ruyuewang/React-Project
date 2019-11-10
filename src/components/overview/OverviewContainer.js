@@ -16,7 +16,6 @@ export default class OverviewContainer extends Component {
 
     render(){
         return(
-
             <Layout style={{height:'100%'}}>
                 <Sider width={200} style={{ background: '#fff' }}>
                     <Menu
@@ -54,7 +53,7 @@ export default class OverviewContainer extends Component {
                             background: '#fff',
                             padding: 15,
                             margin: 0,
-                            minHeight: 280,
+                            flex: 1
                         }}
                     >
                         {/*passing parameters, use this.prop.match.params*/}

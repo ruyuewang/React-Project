@@ -39,7 +39,7 @@ class App extends Component{
                     </Header>
 
                     {/*Content*/}
-                    <Content style={{ padding: '0 50px', background: '#fff', flex: 1}}>
+                    <Content style={{ padding: '0px', background: '#fff', flex: 1}}>
                         <Route path="/home" component={HomeContainer}/>
                         <Route path="/about" component={AboutContainer}/>
                         <Route path="/overview" component={OverviewContainer}/>

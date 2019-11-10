@@ -1,7 +1,6 @@
 import React, {Component} from 'react'
 import { Spin, Alert } from 'antd'
-
-
+import Item from './Item'
 
 export default class List extends Component {
     constructor(props) {
@@ -64,8 +63,12 @@ export default class List extends Component {
             </Spin>)
         }else {
             return(
-                <div>
-                    <h4>Movie Name</h4>
+                <div style={{display: 'flex', flexWrap:'wrap'}}>
+                    {this.state.movies.map(item => {
+                        return(
+                            <Item {...item} key={item.id}/>
+                        )
+                    })}
                 </div>
             )
 
