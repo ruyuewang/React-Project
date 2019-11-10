@@ -1,27 +1,78 @@
 import React, {Component} from 'react'
+import { Spin, Alert } from 'antd'
+
+
 
 export default class List extends Component {
     constructor(props) {
         super(props);
-        this.state = {}
+        this.state = {
+            movies:[], //movie list
+            currentPage: parseInt(props.match.params.page)|| 1, //current page number
+            pageSize: 14,
+            total: 0,
+            isLoading: true,//true: is loading
+            movieType: props.match.params.type
+        }
     }
 
     componentWillMount() {
-        fetch('http://vue.studyit.io/api/getlunbo')
-            .then(response => {
-                console.log(response);
-            })
+        this.loadMovieListByType()
     }
 
     render() {
         return(
             <div>
-                <h1>List Page</h1>
-                <h2>{this.props.match.params.type}</h2>
-                <h2>{this.props.match.params.page}</h2>
+                {this.renderList()}
             </div>
         )
     }
+
+    loadMovieListByType = () => {
+        // const start = this.state.pageSize*(this.state.currentPage - 1);
+        // const url = `https://douban.uieee.com/v2/movie/${this.state.movieType}?start=${start}&count=${this.state.pageSize}`;
+        // fetch(url)
+        //     .then(response => response.json())
+        //     .then(data =>{
+        //         console.log(data);
+        //         this.setState({
+        //             isLoading: false,
+        //             movies:data.subjects,
+        //             total: data.total
+        //         })
+        //     });
+        const data = require('../data/top250');
+        setTimeout(()=>{
+            this.setState({
+                isLoading: false,
+                movies:data.subjects,
+                total: data.total
+            })
+        }, 1000)
+    };
+
+
+    renderList = () => {
+        if(this.state.isLoading) {
+            return(
+            <Spin tip="Loading...">
+                <Alert
+                    message="Requesting Movie Data"
+                    description="Further details about the context of this alert."
+                    type="info"
+                />
+            </Spin>)
+        }else {
+            return(
+                <div>
+                    <h4>Movie Name</h4>
+                </div>
+            )
+
+        }
+    }
+
+
 }
 
 //use fetch API to get data, fetch API is base on Promise
