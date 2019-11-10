@@ -30,9 +30,9 @@ export default class OverviewContainer extends Component {
                                 <span><Icon type="user" />subnav 1</span>
                             }
                         >
-                            <Menu.Item key="1"><Link to="/overview/top250/1">option1</Link></Menu.Item>
-                            <Menu.Item key="2"><Link to="/overview/opt2/1">option2</Link></Menu.Item>
-                            <Menu.Item key="3"><Link to="/overview/opt3/1">option3</Link></Menu.Item>
+                            <Menu.Item key="1"><Link to="/overview/top250/1">Top 250</Link></Menu.Item>
+                            <Menu.Item key="2"><Link to="/overview/coming_soon/1">Coming Soon</Link></Menu.Item>
+                            <Menu.Item key="3"><Link to="/overview/in_theaters/1">In Theaters</Link></Menu.Item>
                         </SubMenu>
                         <SubMenu
                             key="sub2"

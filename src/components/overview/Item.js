@@ -1,5 +1,7 @@
 import React, {Component} from 'react'
 import '../../css/item.scss'
+import { Rate } from 'antd';
+
 
 export default class Item extends Component {
     constructor(props) {
@@ -14,6 +16,7 @@ export default class Item extends Component {
                 <h4>名称: {this.props.title}</h4>
                 <h4>年份: {this.props.year}</h4>
                 <h4>类型: {this.props.genres.join(',')}</h4>
+                <Rate disabled defaultValue={this.props.rating.average/2}  />
             </div>
         )
     }

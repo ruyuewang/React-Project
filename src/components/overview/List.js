@@ -18,6 +18,19 @@ export default class List extends Component {
     componentWillMount() {
         this.loadMovieListByType()
     }
+    
+    componentWillReceiveProps(nextProps) {
+        //reset state when address change, after reset, we can resend request
+        console.log(nextProps.match);
+        this.setState({ //异步重置，记得回调
+            isLoading: true,
+            nowPage: parseInt(nextProps.match.params.page) || 1,
+            movieType: nextProps.match.params.type,
+            total: 0
+        }, function(){
+            this.loadMovieListByType();
+        })
+    }
 
     render() {
         return(
@@ -28,26 +41,27 @@ export default class List extends Component {
     }
 
     loadMovieListByType = () => {
-        // const start = this.state.pageSize*(this.state.currentPage - 1);
-        // const url = `https://douban.uieee.com/v2/movie/${this.state.movieType}?start=${start}&count=${this.state.pageSize}`;
-        // fetch(url)
-        //     .then(response => response.json())
-        //     .then(data =>{
-        //         console.log(data);
-        //         this.setState({
-        //             isLoading: false,
-        //             movies:data.subjects,
-        //             total: data.total
-        //         })
-        //     });
-        const data = require('../data/top250');
-        setTimeout(()=>{
-            this.setState({
-                isLoading: false,
-                movies:data.subjects,
-                total: data.total
-            })
-        }, 1000)
+        //use douban API
+        const start = this.state.pageSize*(this.state.currentPage - 1);
+        const url = `https://douban.uieee.com/v2/movie/${this.state.movieType}?start=${start}&count=${this.state.pageSize}`;
+        fetch(url)
+            .then(response => response.json())
+            .then(data =>{
+                console.log(data);
+                this.setState({
+                    isLoading: false,
+                    movies:data.subjects,
+                    total: data.total
+                })
+            });
+        // const data = require('../data/top250');
+        // setTimeout(()=>{
+        //     this.setState({
+        //         isLoading: false,
+        //         movies:data.subjects,
+        //         total: data.total
+        //     })
+        // }, 1000)
     };
 
 
