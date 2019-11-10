@@ -1,8 +1,9 @@
 import React, {Component} from 'react'
 //route related components
-import {Link,Route} from 'react-router-dom'
-//route component page
+import {Link,Route, Switch} from 'react-router-dom'
+//route components page
 import List from './List'
+import MovieDetail from './MovieDetail'
 //layout related component
 import { Layout, Menu, Icon } from 'antd';
 const { SubMenu } = Menu;
@@ -20,7 +21,7 @@ export default class OverviewContainer extends Component {
                 <Sider width={200} style={{ background: '#fff' }}>
                     <Menu
                         mode="inline"
-                        defaultSelectedKeys={['1']}
+                        defaultSelectedKeys={[window.location.hash.split('/')[2]]}
                         defaultOpenKeys={['sub1']}
                         style={{ height: '100%', borderRight: 0 }}
                     >
@@ -30,9 +31,9 @@ export default class OverviewContainer extends Component {
                                 <span><Icon type="user" />subnav 1</span>
                             }
                         >
-                            <Menu.Item key="1"><Link to="/overview/now_playing/1">Now Playing</Link></Menu.Item>
-                            <Menu.Item key="2"><Link to="/overview/top_rated/1">Top Rated</Link></Menu.Item>
-                            <Menu.Item key="3"><Link to="/overview/upcoming/1">Up Coming</Link></Menu.Item>
+                            <Menu.Item key="now_playing"><Link to="/overview/now_playing/1">Now Playing</Link></Menu.Item>
+                            <Menu.Item key="top_rated"><Link to="/overview/top_rated/1">Top Rated</Link></Menu.Item>
+                            <Menu.Item key="upcoming"><Link to="/overview/upcoming/1">Up Coming</Link></Menu.Item>
                         </SubMenu>
                         <SubMenu
                             key="sub2"
@@ -49,17 +50,12 @@ export default class OverviewContainer extends Component {
                 </Sider>
                 <Layout style={{ paddingLeft: '1px'}}>
                     <div>
-                        <Route path="/overview/:type/:page" component={List}/>
+                        {/*exact will also match each from top to bottom, so use switch instead*/}
+                        <Switch>
+                            <Route exact path="/overview/detail/:id" component={MovieDetail}/>
+                            <Route exact path="/overview/:type/:page" component={List}/>
+                        </Switch>
                     </div>
-                    {/*/!*<Content*!/*/}
-                        {/*/!*style={{*!/*/}
-                            {/*/!*background: '#fff',*!/*/}
-                            {/*/!*padding: 24,*!/*/}
-                            {/*/!*margin: 0,*!/*/}
-                        {/*/!*}}*!/*/}
-                    {/*/!*>*!/*/}
-                        {/*<Route path="/overview/:type/:page" component={List}/>*/}
-                    {/*</Content>*/}
                 </Layout>
             </Layout>
         )

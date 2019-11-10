@@ -10,10 +10,9 @@ export default class Item extends Component {
     }
 
     render() {
-        console.log(this.props.vote_average/2);
         const img_url = `https://image.tmdb.org/t/p/w500/${this.props.poster_path}`;
         return(
-            <div className="box">
+            <div className="box" onClick={()=>{this.goDetail()}}>
                 <img src= {img_url} className="img" alt=""/>
                 <h4>Name: {this.props.title}</h4>
                 <h4>Date: {this.props.release_date}</h4>
@@ -21,5 +20,9 @@ export default class Item extends Component {
                 <Rate disabled defaultValue={(this.props.vote_average)/2}  />
             </div>
         )
+    }
+
+    goDetail = () =>{
+        this.props.history.push('/overview/detail/' + this.props.id)
     }
 }
