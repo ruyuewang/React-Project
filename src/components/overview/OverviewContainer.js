@@ -48,17 +48,18 @@ export default class OverviewContainer extends Component {
                     </Menu>
                 </Sider>
                 <Layout style={{ paddingLeft: '1px'}}>
-                    <Content
-                        style={{
-                            background: '#fff',
-                            padding: 15,
-                            margin: 0,
-                            flex: 1
-                        }}
-                    >
-                        {/*passing parameters, use this.prop.match.params*/}
+                    <div>
                         <Route path="/overview/:type/:page" component={List}/>
-                    </Content>
+                    </div>
+                    {/*/!*<Content*!/*/}
+                        {/*/!*style={{*!/*/}
+                            {/*/!*background: '#fff',*!/*/}
+                            {/*/!*padding: 24,*!/*/}
+                            {/*/!*margin: 0,*!/*/}
+                        {/*/!*}}*!/*/}
+                    {/*/!*>*!/*/}
+                        {/*<Route path="/overview/:type/:page" component={List}/>*/}
+                    {/*</Content>*/}
                 </Layout>
             </Layout>
         )
